@@ -1,5 +1,9 @@
 # 📈 Project 3: KPI Dashboard — Train Loading Control
 
+[![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://office.com)
+[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+
 > **Domain:** Operations Management / KPI Reporting  
 > **Role:** Data Analyst / Reporting Analyst  
 > **Tools:** Excel · Power Query · Power BI  
@@ -17,41 +21,7 @@
 
 ## 📊 KPI Framework / Система показателей
 
-### Core Metrics Designed / Разработанные показатели
-
-| KPI | Formula | Target | Alert |
-|-----|---------|--------|-------|
-| **Plan Completion %** | Actual TEU / Plan TEU × 100 | ≥ 95% | < 80% 🔴 |
-| **Daily Container Throughput** | Sum of TEU dispatched per day | Per plan | -10% 🟡 |
-| **Dock Utilization Rate** | Active dock hours / Total dock hours | ≥ 85% | < 70% 🔴 |
-| **Train Departure Compliance** | On-time departures / Total departures | ≥ 90% | < 75% 🔴 |
-| **Loading Time per Container** | Total loading time / Containers loaded | ≤ baseline | +20% 🟡 |
-
----
-
-## 🔧 Excel Model Architecture / Архитектура Excel-модели
-
-```
-Workbook Structure:
-│
-├── RAW_DATA sheet
-│   └─ Daily input: date, train, containers planned/actual, dock, status
-│
-├── POWER_QUERY transformations
-│   ├─ Clean and normalize raw data
-│   ├─ Calculate daily KPIs
-│   └─ Flag deviations automatically
-│
-├── KPI_SUMMARY sheet
-│   ├─ Current period performance
-│   ├─ Rolling 7-day and 30-day trends
-│   └─ Deviation alerts table
-│
-└── DASHBOARD sheet
-    ├─ Visual KPI cards (Plan vs. Actual)
-    ├─ Trend line charts
-    └─ Red/Yellow/Green status indicators
-```
+See the [KPI Model Description](./kpi-model-description.md) for detailed formulas and workbook architecture.
 
 ---
 
@@ -125,6 +95,15 @@ Step 6: Output to KPI_SUMMARY table
 ```
 
 ---
+
+## 🐍 Live KPI Analysis / Живой анализ KPI
+
+We have implemented a Python script to generate real-time KPI reports from operational data.
+
+**Run the report:**
+```bash
+python3 generate_kpi_report.py
+```
 
 ## 🔍 Insights Generated / Полученные инсайты
 
