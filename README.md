@@ -151,8 +151,8 @@ Soft Skills:
 
 > Replace with your actual contacts below
 
-- 📧 Email: `your.email@example.com`
-- 💼 LinkedIn: `linkedin.com/in/yourprofile`
+- 📧 Email: `yernaraubekerov@gmail.com`
+- 💼 LinkedIn: `www.linkedin.com/in/yernar-aubekerov-204683387`
 - 📍 Location: Kazakhstan / Remote
 
 ---
