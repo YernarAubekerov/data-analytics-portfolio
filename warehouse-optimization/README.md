@@ -1,5 +1,8 @@
 # 🏭 Project 2: WMS — Warehouse Shipment Process Optimization
 
+[![WMS](https://img.shields.io/badge/System-WMS-blue?style=for-the-badge)](https://en.wikipedia.org/wiki/Warehouse_management_system)
+[![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://office.com)
+
 > **Domain:** Warehouse Management / Operations  
 > **Role:** Business / Process Analyst  
 > **Tools:** Excel · WMS System · Process Mapping  
@@ -18,32 +21,7 @@
 ## ❌ Problem / Проблема
 
 ### AS-IS: Before Optimization
-Before the buffer zone system, the shipment process had no structured staging area:
-
-```
-Old Process (AS-IS):
-─────────────────────────────────────────────────────
-Coordinator
-    │
-    ├─→ Tells driver: "Go to Dock X"
-    │
-Driver
-    │
-    ├─→ Goes to storage cell
-    ├─→ Picks up pallets
-    └─→ Goes to Dock X ──→ 🔴 PROBLEM: Dock might not be ready
-                            🔴 No visibility on what's staged where
-                            🔴 Multiple drivers → wrong dock trips
-                            🔴 WMS operator manually tracking everything
-```
-
-### Root Causes Identified / Выявленные причины
-| # | Root Cause | Impact |
-|---|-----------|--------|
-| 1 | No dedicated staging area before docks | Pallets blocking dock lanes |
-| 2 | No 1:1 cell-to-dock mapping | Wrong pallets at wrong docks |
-| 3 | WMS tasks created without physical staging | Out-of-sync system vs. reality |
-| 4 | Verbal coordination only | High error rate during peak hours |
+See the [Detailed AS-IS Analysis](./as-is-process.md) for the original process flow and root causes.
 
 ---
 
@@ -51,32 +29,18 @@ Driver
 
 ### TO-BE: After Optimization — Buffer Zone System
 
-**Key Design Decision:** Buffer cells P02–P11 are numbered to **match dock numbers exactly** (Buffer P05 = Dock 5). This eliminates all ambiguity.
+**Key Design Decision:** Buffer cells P02–P11 are numbered to **match dock numbers exactly** (Buffer P05 = Dock 5).
 
+```mermaid
+graph LR
+    A[Coordinator] -- Dock # --> B[Storage Driver]
+    B -- Move --> C[Buffer P02-P11]
+    C -- Match Dock --> D[WMS Operator]
+    D -- Create Task --> E[Dispatch Driver]
+    E -- Load --> F[Dock X]
 ```
-New Process (TO-BE):
-─────────────────────────────────────────────────────
-STEP 1: Coordinator assigns dock number to Driver
-         │
-         ▼
-STEP 2: Driver picks pallets & moves to Buffer Cell
-         Storage Cell ──────→ Buffer Cell P0X
-         (e.g., A-12-3)       (matches Dock X)
-         │
-         ▼
-STEP 3: WMS Operator creates Pick Task
-         Buffer Cell P0X → Pick Task (same dock number)
-         │
-         ▼
-STEP 4: Assigned Driver completes pick
-         Picks all pallets from buffer → Loads dock
-         Reports completion to WMS Operator
-         │
-         ▼
-STEP 5: WMS Operator updates status
-         "In Pick" ──────→ "Ready for Dispatch"
-         (future: automatic status transition)
-```
+
+See the [Detailed TO-BE Design](./to-be-process.md) for the optimized procedure.
 
 ---
 

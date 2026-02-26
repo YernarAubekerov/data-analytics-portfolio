@@ -7,19 +7,25 @@
 
 ## 👋 About Me / О себе
 
-**[EN]** I am a business analyst transitioning into data analytics, with hands-on experience in logistics operations — warehouse management systems (WMS), container terminal management (CTMS), and KPI reporting. I combine deep domain knowledge with analytical tools to turn operational data into actionable insights.
+**[EN]** 📊 I am a Business Analyst transitioning into **Data Analytics**, with 5+ years of hands-on experience in logistics operations. I specialize in:
+- 📦 **WMS/CTMS Optimization** — Streamlining warehouse and terminal flows.
+- 📈 **KPI Dashboarding** — Turning raw operational data into actionable insights using Excel, Power BI, and Python.
+- 🏗️ **Process Redesign** — Mapping AS-IS/TO-BE states and implementing structured operational regulations.
 
-**[RU]** Аналитик с опытом в логистике и управлении складом (WMS), контейнерными терминалами (CTMS) и KPI-отчётностью. Моя цель — перейти в роль Data Analyst, объединяя знание бизнес-процессов с аналитическими инструментами.
+**[RU]** 📊 Бизнес-аналитик, переходящий в **Data Analytics**, с опытом работы в логистике более 5 лет. Мои ключевые компетенции:
+- 📦 **Оптимизация WMS/CTMS** — Настройка потоков на складе и контейнерном терминале.
+- 📈 **KPI-дашборды** — Превращение операционных данных в инсайты с помощью Excel, Power BI и Python.
+- 🏗️ **Реинжиниринг процессов** — Проектирование AS-IS/TO-BE состояний и внедрение регламентов.
 
 ---
 
 ## 🗂️ Projects / Проекты
 
-| # | Project | Domain | Tools | Language |
-|---|---------|--------|-------|----------|
-| 1 | [📦 CTMS — Container Terminal Analytics](#1--ctms--container-terminal-analytics) | Logistics / Container Terminal | Excel, Power BI | RU/EN |
-| 2 | [🏭 WMS — Warehouse Process Optimization](#2--wms--warehouse-process-optimization) | Warehouse Management | Excel, Power Query | RU/EN |
-| 3 | [📈 KPI Dashboard — Train Loading Control](#3--kpi-dashboard--train-loading-control) | Operations / KPI | Excel, Power BI | RU/EN |
+| # | Project | Domain | Tools | Data Analysis |
+|---|---------|--------|-------|---------------|
+| 1 | [📦 CTMS — Container Terminal Analytics](#1--ctms--container-terminal-analytics) | Logistics / Container Terminal | Excel, Power BI, Python | [Analyze flows](./ctms-analysis/analyze_flows.py) |
+| 2 | [🏭 WMS — Warehouse Process Optimization](#2--wms--warehouse-process-optimization) | Warehouse Management | Excel, Process Mapping | [View Regulation](./warehouse-optimization/regulation-buffer-zones.md) |
+| 3 | [📈 KPI Dashboard — Train Loading Control](#3--kpi-dashboard--train-loading-control) | Operations / KPI | Excel, Power BI, Python | [Generate Report](./kpi-dashboard/generate_kpi_report.py) |
 
 ---
 
@@ -164,16 +170,20 @@ portfolio/
 ├── README.md                          ← You are here
 ├── ctms-analysis/
 │   ├── README.md                      ← Project deep-dive
+│   ├── analyze_flows.py               ← Python analysis script
+│   ├── data/                          ← Mock datasets
 │   ├── process-map.md                 ← Container lifecycle mapping
-│   └── business-requirements.md      ← Key requirements & gaps
+│   └── business-requirements.md       ← Key requirements & gaps
 ├── warehouse-optimization/
 │   ├── README.md                      ← Project deep-dive
 │   ├── as-is-process.md               ← Current state analysis
 │   ├── to-be-process.md               ← Optimized process
-│   └── regulation-buffer-zones.md    ← Final operational regulation
+│   └── regulation-buffer-zones.md     ← Final operational regulation
 ├── kpi-dashboard/
 │   ├── README.md                      ← Project deep-dive
-│   └── kpi-model-description.md      ← Metrics & logic explained
+│   ├── generate_kpi_report.py         ← Python reporting script
+│   ├── data/                          ← Mock datasets
+│   └── kpi-model-description.md       ← Metrics & logic explained
 └── docs/
     └── logistics-glossary.md          ← Domain terms reference
 ```

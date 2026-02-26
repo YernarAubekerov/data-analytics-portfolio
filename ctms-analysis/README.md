@@ -1,5 +1,9 @@
 # 📦 Project 1: CTMS — Container Terminal Analytics
 
+[![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://office.com)
+[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+
 > **Domain:** Logistics / Container Terminal Management  
 > **Role:** Business Analyst / Process Analyst  
 > **Tools:** Excel · Power BI · 1C:Enterprise 8.3 · Business Process Modeling  
@@ -27,48 +31,20 @@ The terminal operates in **Atyrau, Kazakhstan** and handles:
 
 ## 🔄 Container Lifecycle Mapping / Схема жизненного цикла контейнера
 
+```mermaid
+graph TD
+    A[Arrival] --> B[Expected Receipt]
+    B --> C[Inspection]
+    C --> D[Unloading & Placement]
+    D --> E[Storage]
+    E --> F{Stuffing?}
+    F -- Yes --> G[Loading]
+    G --> H[Dispatch]
+    F -- No --> H
+    H --> I[Departure]
 ```
-ARRIVAL (Прибытие)
-    │
-    ▼
-EXPECTED RECEIPT (Ожидаемое поступление)
-    │  └─ Train arrives at station
-    │  └─ Receipt application created
-    │  └─ Train dispatched to front
-    │
-    ▼
-INSPECTION (Осмотр)
-    │  └─ External inspection before unloading
-    │  └─ Damage assessment (8+ damage types)
-    │  └─ Criteria: Sealing · Odor · Cleanliness · Seaworthiness
-    │
-    ▼
-UNLOADING & PLACEMENT (Выгрузка и размещение)
-    │  └─ Containers unloaded from platforms
-    │  └─ Internal inspection
-    │  └─ Moved to storage zone
-    │
-    ▼
-STORAGE (Хранение)
-    │  └─ Positioned in terminal topology
-    │  └─ Cell system: Zone → Section → Row → Tier
-    │
-    ▼
-[OPTIONAL] STUFFING / LOADING (Затарка)
-    │  └─ Stuffing request → Assembly task
-    │  └─ Container delivered to warehouse
-    │  └─ Goods loaded
-    │
-    ▼
-DISPATCH (Отгрузка)
-       └─ Shipment order created
-       └─ Platform request submitted
-       └─ Platform inspection
-       └─ Loading
-       └─ Transfer to Railway carrier
-       └─ Train departure
-       └─ Loading info transmitted
-```
+
+See the [Detailed Process Map](./process-map.md) for step-by-step operations.
 
 ---
 
@@ -128,22 +104,18 @@ Per Container Record:
 
 ## 🔍 Findings & Recommendations / Выводы и рекомендации
 
-### Identified Gaps / Выявленные пробелы
-1. **Missing mandatory fields** — "Train" field not always populated in container receipts
-2. **N/A container types** — Many containers arrive with unclassified type; requires classification improvement
-3. **Manual status transitions** — Some statuses require manual update; automation recommended
-4. **Topology underutilization** — Cell assignment not always optimized for turnaround speed
-
-### Recommendations / Рекомендации
-| Priority | Issue | Recommendation |
-|----------|-------|---------------|
-| 🔴 High | Missing Train field | Make mandatory in receipt form |
-| 🔴 High | N/A container types | Pre-populate from carrier manifests |
-| 🟡 Medium | Manual status updates | Automate "In Pick → Ready for Dispatch" |
-| 🟡 Medium | Topology planning | Implement placement algorithm by dispatch date |
-| 🟢 Low | Reporting | Add TEU throughput dashboard |
+See the [Business Requirements & Gaps](./business-requirements.md) document for a deep dive into identified inefficiencies.
 
 ---
+
+## 🐍 Live Data Analysis / Живой анализ данных
+
+We have implemented a Python script to analyze container flows from raw data.
+
+**Run the analysis:**
+```bash
+python3 analyze_flows.py
+```
 
 ## 📈 Power BI Dashboard Concept / Концепция дашборда
 
